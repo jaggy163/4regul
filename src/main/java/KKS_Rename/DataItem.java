@@ -9,6 +9,19 @@ public class DataItem {
     public DataItem() {
     }
 
+    public DataItem(DataItem x) {
+        this.name = x.getName();
+        this.descr = x.getDescr();
+        this.typeID = x.getTypeID();
+        HighBound = x.getHighBound();
+        LowBound = x.getLowBound();
+        Scale = x.getScale();
+        IoAdr = x.getIoAdr();
+        Cycle = x.getCycle();
+        DeadBand = x.getDeadBand();
+        this.mapVarName = x.getMapVarName();
+    }
+
     public DataItem(String name, String descr, int typeID, int highBound, int lowBound, int scale,
                     int ioAdr, int cycle, int deadBand, String mapVarName) {
         this.name = name;
@@ -118,5 +131,15 @@ public class DataItem {
                 ", DeadBand=" + DeadBand +
                  '\'' +
                 '}' + "\n";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

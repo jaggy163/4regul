@@ -33,7 +33,7 @@ public class ReadXML {
                 XMLEvent xmlEvent = reader.nextEvent();
                 if (xmlEvent.isStartElement()) {
                     StartElement startElement = xmlEvent.asStartElement();
-                    if (startElement.getName().getLocalPart().equals("DataItem")) {
+                    if (startElement.getName().getLocalPart().equals("Item")) {
                         Attribute name = startElement.getAttributeByName(new QName("Name"));
                         item.setName(name.getValue());
                         Attribute descr = startElement.getAttributeByName((new QName("Descr")));
