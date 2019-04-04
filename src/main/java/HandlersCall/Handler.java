@@ -32,6 +32,12 @@ public class Handler {
         return comment;
     }
 
+    public String getClearComment() {
+        String result = comment;
+        result = result.replaceAll("\"", "");
+        return result;
+    }
+
     public void setComment(String comment) {
         this.comment = comment;
     }
@@ -64,7 +70,7 @@ public class Handler {
     public String toString() {
         return "Handler{" +
                 "kks='" + kks + '\'' +
-                ", iec104='" + iec104 + '\'' +
+                ", iec104='" + getIec104() + '\'' +
                 ", comment='" + comment + '\'' +
                 ", modulNum=" + modulNum +
                 ", cnNum=" + cnNum +

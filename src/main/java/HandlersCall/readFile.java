@@ -14,7 +14,7 @@ public class readFile {
         ArrayList<Handler> handlers = new ArrayList<>();
         boolean flag = false;
         Path path = Paths.get(fileName);
-        Scanner scanner = new Scanner(path);
+        Scanner scanner = new Scanner(path, "windows-1251");
 
         scanner.useDelimiter(System.getProperty("line.separator"));
         while (scanner.hasNext()) {
@@ -24,7 +24,7 @@ public class readFile {
                 flag = true;
                 cnNum++; index++;
             } else {
-                if (flag) { modulNum++; cnNum=1; }
+                if (flag) { modulNum++; cnNum=1; flag=false; }
             }
         }
 
@@ -32,7 +32,6 @@ public class readFile {
     }
 
     public static Handler parse(String line, int modulNum, int cnNum, int index) {
-        System.out.println(line);
         String kks, comment, tmp;
         int delim;
         Handler handler = new Handler();

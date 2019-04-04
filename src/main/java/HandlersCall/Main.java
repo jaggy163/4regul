@@ -8,6 +8,7 @@ public class Main {
         ArrayList<Handler> handlers = new ArrayList<>();
 
         handlers = readFile.read("D:\\test.txt");
-        System.out.println(handlers);
+        //System.out.println(handlers);
+        writeFile.write("D:\\result.txt", handlers);
     }
 }
