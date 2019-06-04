@@ -3,7 +3,7 @@ package KKS_Rename;
 public class DataItem {
     private String name;
     private String descr;
-    private int typeID, HighBound, LowBound, Scale, IoAdr, Cycle, DeadBand;
+    private int typeID, HighBound, LowBound, Scale, IoAdr, Cycle, DeadBand, MirrorAdr, SelectPeriod, ExecTimeout;
     private String mapVarName;
 
     public DataItem() {
@@ -114,6 +114,30 @@ public class DataItem {
 
     public void setMapVarName(String mapVarName) {
         this.mapVarName = mapVarName;
+    }
+
+    public int getMirrorAdr() {
+        return MirrorAdr;
+    }
+
+    public void setMirrorAdr(int mirrorAdr) {
+        MirrorAdr = mirrorAdr;
+    }
+
+    public int getSelectPeriod() {
+        return SelectPeriod;
+    }
+
+    public void setSelectPeriod(int selectPeriod) {
+        SelectPeriod = selectPeriod;
+    }
+
+    public int getExecTimeout() {
+        return ExecTimeout;
+    }
+
+    public void setExecTimeout(int execTimeout) {
+        ExecTimeout = execTimeout;
     }
 
     @Override

@@ -12,9 +12,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-public class QuartzJob implements Job
+public class QuartzJob
 {
-    public void execute(JobExecutionContext context)
+    public static void execute()
             throws JobExecutionException {
         URL url;
         InputStream is = null;
@@ -65,6 +65,6 @@ public class QuartzJob implements Job
         System.out.println("вызываем");
         (new Report(report)).run();
         System.out.println("выходим");
-
+        System.gc();
     }
 }

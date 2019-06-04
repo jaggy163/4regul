@@ -25,7 +25,7 @@ public class WriteXML {
 
             writer.writeStartDocument();
             for (int i=0; i<data.size(); i++) {
-                writer.writeStartElement("DataItem");
+                writer.writeStartElement("CmdItem");
                 writer.writeAttribute("Name", String.valueOf(data.get(i).getName()));
                 writer.writeAttribute("Descr", String.valueOf(data.get(i).getDescr()));
                 writer.writeAttribute("TypeId", String.valueOf(data.get(i).getTypeID()));
@@ -35,8 +35,11 @@ public class WriteXML {
                 writer.writeAttribute("Scale", String.valueOf(data.get(i).getScale()));
                 writer.writeAttribute("IoAdr", String.valueOf(data.get(i).getIoAdr()));
                 writer.writeAttribute("MapVarName", String.valueOf(data.get(i).getMapVarName()));
-                writer.writeAttribute("Cycle", String.valueOf(data.get(i).getCycle()));
-                writer.writeAttribute("DeadBand", String.valueOf(data.get(i).getDeadBand()));
+//                writer.writeAttribute("Cycle", String.valueOf(data.get(i).getCycle()));
+//                writer.writeAttribute("DeadBand", String.valueOf(data.get(i).getDeadBand()));
+                writer.writeAttribute("MirrorAdr", String.valueOf(data.get(i).getMirrorAdr()));
+                writer.writeAttribute("SelectPeriod", String.valueOf(data.get(i).getSelectPeriod()));
+                writer.writeAttribute("ExecTimeout", String.valueOf(data.get(i).getExecTimeout()));
                 writer.writeEndElement();
                 writer.writeCharacters("\r");
             }
@@ -54,3 +57,4 @@ public class WriteXML {
     }
 
 }
+

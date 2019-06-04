@@ -33,7 +33,7 @@ public class ReadXML {
                 XMLEvent xmlEvent = reader.nextEvent();
                 if (xmlEvent.isStartElement()) {
                     StartElement startElement = xmlEvent.asStartElement();
-                    if (startElement.getName().getLocalPart().equals("Item")) {
+                    if (startElement.getName().getLocalPart().equals("CmdItem")) {
                         Attribute name = startElement.getAttributeByName(new QName("Name"));
                         item.setName(name.getValue());
                         Attribute descr = startElement.getAttributeByName((new QName("Descr")));
@@ -50,10 +50,16 @@ public class ReadXML {
                         item.setScale(Integer.parseInt(scale.getValue()));
                         Attribute ioAdr = startElement.getAttributeByName((new QName("IoAdr")));
                         item.setIoAdr(Integer.parseInt(ioAdr.getValue()));
-                        Attribute cycle = startElement.getAttributeByName((new QName("Cycle")));
-                        item.setCycle(Integer.parseInt(cycle.getValue()));
-                        Attribute deadBand = startElement.getAttributeByName((new QName("DeadBand")));
-                        item.setDeadBand(Integer.parseInt(deadBand.getValue()));
+//                        Attribute cycle = startElement.getAttributeByName((new QName("Cycle")));
+//                        item.setCycle(Integer.parseInt(cycle.getValue()));
+//                        Attribute deadBand = startElement.getAttributeByName((new QName("DeadBand")));
+//                        item.setDeadBand(Integer.parseInt(deadBand.getValue()));
+                        Attribute MirrorAdr = startElement.getAttributeByName((new QName("MirrorAdr")));
+                        item.setMirrorAdr(Integer.parseInt(MirrorAdr.getValue()));
+                        Attribute SelectPeriod = startElement.getAttributeByName((new QName("SelectPeriod")));
+                        item.setSelectPeriod(Integer.parseInt(SelectPeriod.getValue()));
+                        Attribute ExecTimeout = startElement.getAttributeByName((new QName("ExecTimeout")));
+                        item.setExecTimeout(Integer.parseInt(ExecTimeout.getValue()));
 
                         data.add(item);
                     }

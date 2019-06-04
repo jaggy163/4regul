@@ -8,7 +8,7 @@ public class ChangeList {
     А потом методами меняют нужные атрибуты
      */
     public static ArrayList<DataItem> change(ArrayList<DataItem> data, String[] kkss, int startAdr) {
-        ArrayList<DataItem> result = new  ArrayList<DataItem>();
+        ArrayList<DataItem> result = new  ArrayList<>();
         for (int i=0; i< kkss.length; i++) {
             for (int j=0; j<data.size(); j++) {
                 DataItem tmp;
