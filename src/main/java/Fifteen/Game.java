@@ -23,6 +23,18 @@ public class Game {
         }
     }
 
+    Game(Game game) {
+        this.field = new int[4][4];
+        for (int i=0; i<16; i++) {
+            this.field[i/4][i%4] = game.getField()[i/4][i%4];
+        }
+        this.turnCounter = game.getTurnCounter();
+    }
+
+    public int[][] getField() {
+        return field;
+    }
+
     public static Game createNewGame() {
         Game game;
         do {
@@ -123,5 +135,14 @@ public class Game {
         }
         field[3][2] = 0;
         field[3][3] = 15;
+    }
+
+    public int blankPos() {
+        for (int i = 0; i < numbers.length; i++) {
+            if (field[i/4][i%4] == 0) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
