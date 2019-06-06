@@ -37,7 +37,7 @@ public class AISolution {
             game.doTurn(tryNumber);
             turns.add(tryNumber);
             index++;
-            if (index%50==0) {
+            if (index%80==0) {
                 game = new Game(archiveGame);
                 turns.clear();
             }

@@ -21,30 +21,32 @@ public class Main {
                 game.cheat();
                 System.out.println(game);
             } else if (turn==322) {
-                System.out.println("AISolution started.");
-                long startTime = System.currentTimeMillis();
-                AISolution ai = new AISolution(game);
-                turns = ai.solve();
+                while (!game.win()) {
+                    System.out.println("AISolution started.");
+                    long startTime = System.currentTimeMillis();
+                    AISolution ai = new AISolution(game);
+                    turns = ai.solve();
 
-                for (int i=0; i<39; i++) {
-                    long endTime = System.currentTimeMillis();
-                    if (endTime-startTime >= 20_000) {
-                        System.out.println("Сложный ход");
-                        break;
+                    for (int i = 0; i < 49; i++) {
+                        long endTime = System.currentTimeMillis();
+                        ArrayList<Integer> turns_tmp = new ArrayList<>();
+                        AISolution ai1 = new AISolution(game);
+                        turns_tmp = ai1.solve();
+                        if (turns.size() > turns_tmp.size()) {
+                            turns = turns_tmp;
+                        }
+                        if (endTime - startTime >= 30_000) {
+                            System.out.println("Сложный ход");
+                            break;
+                        }
                     }
-                    ArrayList<Integer> turns_tmp = new ArrayList<>();
-                    AISolution ai1 = new AISolution(game);
-                    turns_tmp = ai1.solve();
-                    if (turns.size() > turns_tmp.size()) {
-                        turns = turns_tmp;
-                    }
-                }
-                System.out.println(turns);
+                    System.out.println(turns);
 
-                for (int i=0; i<turns.size(); i++) {
-                    game.doTurn(turns.get(i));
-                    System.out.println(game);
-                    Thread.sleep(250);
+                    for (int i = 0; i < turns.size(); i++) {
+                        game.doTurn(turns.get(i));
+                        System.out.println(game);
+                        Thread.sleep(250);
+                    }
                 }
             } else
             {
