@@ -72,8 +72,8 @@ public class Game {
         if (turnIsCorrect(row, column, rowEmpty, columnEmpty)) {
             field[rowEmpty][columnEmpty] = field[row][column];
             field[row][column] = 0;
+            turnCounter++;
         }
-        turnCounter++;
     }
 
     public boolean turnIsCorrect(int turn) {

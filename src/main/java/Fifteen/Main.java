@@ -22,10 +22,16 @@ public class Main {
                 System.out.println(game);
             } else if (turn==322) {
                 System.out.println("AISolution started.");
+                long startTime = System.currentTimeMillis();
                 AISolution ai = new AISolution(game);
                 turns = ai.solve();
 
                 for (int i=0; i<39; i++) {
+                    long endTime = System.currentTimeMillis();
+                    if (endTime-startTime >= 20_000) {
+                        System.out.println("Сложный ход");
+                        break;
+                    }
                     ArrayList<Integer> turns_tmp = new ArrayList<>();
                     AISolution ai1 = new AISolution(game);
                     turns_tmp = ai1.solve();
@@ -38,7 +44,7 @@ public class Main {
                 for (int i=0; i<turns.size(); i++) {
                     game.doTurn(turns.get(i));
                     System.out.println(game);
-                    Thread.sleep(1000);
+                    Thread.sleep(250);
                 }
             } else
             {
